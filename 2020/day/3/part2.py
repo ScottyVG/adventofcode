@@ -6,29 +6,93 @@ def main():
 
     li = list(input_data.split("\n"))
 
-    count = 0
-
     def Convert(string): 
         list1=[] 
         list1[:0]=string 
         return list1 
 
-    for i in range(len(li)):
-        plist = ""
-        password_regex = re.compile(r'(\d+)-(\d+)\s([a-z]):\s(.*)')
-        regex_match = password_regex.search(li[i])
-        a = int(regex_match.group(1))
-        b = int(regex_match.group(2))
-        c = regex_match.group(3)
-        d = regex_match.group(4)
-        plist = Convert(d)
-        if plist[a-1] == c and plist[b-1] == c:
-            pass
-        elif plist[a-1] == c:
-            count += 1
-        elif plist[b-1] == c:
-            count += 1
-    print (count)
+    def a():
+        count = 0
+        turns = 0
+        for i in range(len(li)):
+            if i == 0:
+                pass
+            else:
+                slist = Convert(li[i])
+                turns += 1
+                if turns >= 31:
+                    turns = turns - 31
+                if slist[turns] == '#':
+                    count += 1
+        print (count)
+        return count
+    
+    def b():
+        count = 0
+        turns = 0
+        for i in range(len(li)):
+            if i == 0:
+                pass
+            else:
+                slist = Convert(li[i])
+                turns += 3
+                if turns >= 31:
+                    turns = turns - 31
+                if slist[turns] == '#':
+                    count += 1
+        print (count)
+        return count
+
+    def c():
+        count = 0
+        turns = 0
+        for i in range(len(li)):
+            if i == 0:
+                pass
+            else:
+                slist = Convert(li[i])
+                turns += 5
+                if turns >= 31:
+                    turns = turns - 31
+                if slist[turns] == '#':
+                    count += 1
+        print (count)
+        return count
+
+    def d():
+        count = 0
+        turns = 0
+        for i in range(len(li)):
+            if i == 0:
+                pass
+            else:
+                slist = Convert(li[i])
+                turns += 7
+                if turns >= 31:
+                    turns = turns - 31
+                if slist[turns] == '#':
+                    count += 1
+        print (count)
+        return count
+
+    def e():
+        count = 0
+        turns = 0
+        for i in range(len(li)):
+            if (i % 2) == 1 or i == 0:
+                pass
+            else:
+                slist = Convert(li[i])
+                turns += 1
+                if turns >= 31:
+                    turns = turns - 31
+                if slist[turns] == '#':
+                    count += 1
+        print (count)
+        return count
+    
+    # Run Functions:
+    print(a()*b()*c()*d()*e())
 
 if __name__ == "__main__":
     main()
